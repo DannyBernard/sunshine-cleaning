@@ -1,0 +1,2770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sunshine Cleaning Systems LLC — Professional residential and commercial cleaning in East Stroudsburg, PA. Licensed & Insured. Bilingual service. Call (855) 662-5326." />
+  <title>Sunshine Cleaning Systems LLC | East Stroudsburg, PA</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===========================
+       CSS VARIABLES & RESET
+    =========================== */
+    :root {
+      --blue:      #2a7fd4;
+      --blue-dark: #1a5fa0;
+      --gold:      #f5a623;
+      --gold-dark: #c97d0a;
+      --bg:        #fafcff;
+      --text:      #0d1f2d;
+      --muted:     #7a90a4;
+      --white:     #ffffff;
+      --radius:    12px;
+      --shadow:    0 4px 24px rgba(13,31,45,.10);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.2;
+    }
+
+    img { display: block; width: 100%; object-fit: cover; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Lang toggle */
+    body.es .txt-en { display: none !important; }
+    body.en .txt-es { display: none !important; }
+    body.en .txt-en { display: inline; }
+    body.es .txt-es { display: inline; }
+
+    /* ===========================
+       NAVIGATION
+    =========================== */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(250,252,255,.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(42,127,212,.12);
+      transition: box-shadow .3s;
+    }
+    #navbar.scrolled { box-shadow: 0 2px 16px rgba(13,31,45,.10); }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 12px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo .sun-icon {
+      width: 40px; height: 40px;
+      flex-shrink: 0;
+    }
+    .nav-logo-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .nav-logo-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: .62rem;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex: 1;
+      justify-content: center;
+    }
+    .nav-links a {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--text);
+      padding: 6px 10px;
+      border-radius: 7px;
+      transition: background .2s, color .2s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { background: rgba(42,127,212,.08); color: var(--blue); }
+    .nav-links a.active { color: var(--blue); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .lang-toggle {
+      display: flex;
+      border: 1.5px solid var(--blue);
+      border-radius: 6px;
+      overflow: hidden;
+      font-size: .8rem;
+      font-weight: 600;
+    }
+    .lang-toggle button {
+      padding: 5px 12px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--blue);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      transition: background .2s, color .2s;
+    }
+    .lang-toggle button.active {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--text);
+      font-weight: 700;
+      font-size: .85rem;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--gold-dark); transform: translateY(-1px); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: .3s;
+    }
+
+    /* ===========================
+       HERO
+    =========================== */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: #0d1f2d;
+    }
+    .hero-bg svg {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(13,31,45,.92) 0%, rgba(13,31,45,.6) 55%, rgba(13,31,45,.1) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 120px 0 80px;
+      max-width: 700px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245,166,35,.15);
+      border: 1px solid rgba(245,166,35,.45);
+      color: var(--gold);
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 4px;
+      margin-bottom: 28px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 6.5vw, 4.8rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+    .hero-title .gold-italic {
+      color: var(--gold);
+      font-style: italic;
+      display: block;
+    }
+    .hero-title .underline-bar {
+      display: inline-block;
+      position: relative;
+    }
+    .hero-title .underline-bar::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -6px;
+      width: 100%; height: 5px;
+      background: var(--gold);
+      border-radius: 3px;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,.88);
+      margin-bottom: 36px;
+      max-width: 560px;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 15px 30px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 16px rgba(245,166,35,.4);
+    }
+    .btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,166,35,.45); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.15);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 15px 30px;
+      border-radius: 10px;
+      border: 2px solid rgba(255,255,255,.5);
+      cursor: pointer;
+      transition: background .2s, border-color .2s;
+      backdrop-filter: blur(4px);
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,.25); border-color: var(--white); }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .hero-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,.9);
+      font-size: .88rem;
+      font-weight: 500;
+    }
+    .hero-trust-item svg { flex-shrink: 0; }
+
+    /* ===========================
+       TRUST BAR
+    =========================== */
+    #trust-bar {
+      background: var(--blue-dark);
+      padding: 22px 0;
+    }
+
+    .trust-bar-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px 48px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--white);
+      font-size: .9rem;
+      font-weight: 500;
+    }
+    .trust-item-icon {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,.15);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* ===========================
+       SECTIONS COMMON
+    =========================== */
+    section { padding: 96px 0; }
+
+    .section-label {
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .section-title span { color: var(--blue); }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 580px;
+    }
+
+    .section-header { margin-bottom: 56px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-sub { margin: 0 auto; }
+
+    /* ===========================
+       SERVICES
+    =========================== */
+    #services { background: var(--white); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .service-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform .25s, box-shadow .25s;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(13,31,45,.14); }
+
+    .service-img {
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-img img { height: 100%; transition: transform .4s; }
+    .service-card:hover .service-img img { transform: scale(1.05); }
+
+    .service-badge {
+      position: absolute;
+      top: 14px; left: 14px;
+      background: var(--blue);
+      color: var(--white);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .service-body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-icon { font-size: 1.6rem; margin-bottom: 10px; }
+
+    .service-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .service-name-es {
+      font-size: .88rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .service-desc {
+      font-size: .92rem;
+      color: var(--muted);
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--blue);
+      font-weight: 700;
+      font-size: .88rem;
+      transition: gap .2s;
+    }
+    .service-link:hover { gap: 10px; }
+
+    /* ===========================
+       METRICS
+    =========================== */
+    #metrics {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
+      padding: 72px 0;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+
+    .metric-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .metric-label {
+      font-size: .95rem;
+      color: rgba(255,255,255,.88);
+      font-weight: 500;
+    }
+
+    /* ===========================
+       WHY CHOOSE US
+    =========================== */
+    #why {
+      background: var(--bg);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .why-image {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      height: 480px;
+    }
+    .why-image img { height: 100%; }
+
+    .why-points { display: flex; flex-direction: column; gap: 28px; }
+
+    .why-point {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .why-point-icon {
+      width: 48px; height: 48px;
+      background: rgba(42,127,212,.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .why-point-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .why-point-desc {
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    /* ===========================
+       TESTIMONIALS — GOOGLE STYLE
+    =========================== */
+    #testimonials { background: #f8f9fa; }
+
+    .google-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .google-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -.5px;
+    }
+    .google-logo .g-blue   { color: #4285F4; }
+    .google-logo .g-red    { color: #EA4335; }
+    .google-logo .g-yellow { color: #FBBC05; }
+    .google-logo .g-green  { color: #34A853; }
+
+    .google-overall {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 48px;
+    }
+    .google-score {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1;
+    }
+    .google-stars-row {
+      display: flex;
+      gap: 3px;
+    }
+    .g-star {
+      width: 22px; height: 22px;
+      color: #FBBC05;
+    }
+    .google-count {
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    /* Grid of cards */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .gcard {
+      background: #fff;
+      border-radius: 12px;
+      padding: 22px 24px;
+      box-shadow: 0 1px 6px rgba(0,0,0,.1), 0 2px 16px rgba(0,0,0,.06);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .gcard:hover { transform: translateY(-4px); box-shadow: 0 6px 28px rgba(0,0,0,.12); }
+
+    .gcard-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .gcard-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .gcard-name {
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--text);
+    }
+    .gcard-date {
+      font-size: .78rem;
+      color: var(--muted);
+    }
+    .gcard-stars {
+      display: flex;
+      gap: 2px;
+    }
+    .gcard-stars svg {
+      width: 16px; height: 16px;
+      color: #FBBC05;
+    }
+    .gcard-text {
+      font-size: .93rem;
+      color: #3c4043;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .gcard-bottom {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding-top: 8px;
+      border-top: 1px solid #f0f0f0;
+    }
+    .google-g {
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: -.2px;
+    }
+    .gcard-source {
+      font-size: .75rem;
+      color: var(--muted);
+    }
+
+    .view-google-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid #dadce0;
+      border-radius: 8px;
+      padding: 11px 24px;
+      font-size: .9rem;
+      font-weight: 600;
+      color: #3c4043;
+      background: #fff;
+      cursor: pointer;
+      transition: background .2s, box-shadow .2s;
+      text-decoration: none;
+      margin: 0 auto;
+    }
+    .view-google-btn:hover { background: #f8f9fa; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+
+    .slider-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: rgba(42,127,212,.25);
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+    .slider-dot.active { background: var(--blue); transform: scale(1.3); }
+    .slider-btn {
+      background: var(--white);
+      border: 1.5px solid rgba(42,127,212,.25);
+      border-radius: 50%;
+      width: 44px; height: 44px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      color: var(--blue);
+      transition: background .2s, border-color .2s;
+    }
+    .slider-btn:hover { background: var(--blue); color: var(--white); border-color: var(--blue); }
+    .slider-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    /* ===========================
+       HOW IT WORKS
+    =========================== */
+    #how {
+      background: var(--bg);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      position: relative;
+    }
+
+    .step-card {
+      text-align: center;
+      padding: 36px 24px;
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .step-number {
+      width: 56px; height: 56px;
+      background: var(--blue);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 auto 18px;
+    }
+
+    .step-icon { font-size: 1.8rem; margin-bottom: 12px; }
+
+    .step-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-size: .9rem;
+      color: var(--muted);
+    }
+
+    /* ===========================
+       CTA BAND
+    =========================== */
+    #cta-band {
+      background: linear-gradient(135deg, #f5a623 0%, #e8920d 100%);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .cta-band-title {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .cta-band-sub {
+      font-size: 1.1rem;
+      color: rgba(13,31,45,.75);
+      margin-bottom: 36px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-band-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .btn-dark {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--text);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 15px 32px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+    .btn-dark:hover { background: #1a3348; transform: translateY(-2px); }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25D366;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 15px 32px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+    .btn-whatsapp:hover { background: #1da851; transform: translateY(-2px); }
+
+    /* ===========================
+       CONTACT
+    =========================== */
+    #contact { background: var(--white); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contact-info { display: flex; flex-direction: column; gap: 24px; }
+
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .contact-item-icon {
+      width: 44px; height: 44px;
+      background: rgba(42,127,212,.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .contact-item-label {
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+    .contact-item-value {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .contact-item-value a { color: var(--blue); }
+    .contact-item-value a:hover { text-decoration: underline; }
+
+    /* Form */
+    .contact-form {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .form-sub {
+      font-size: .88rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .form-group.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    input, select, textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      padding: 11px 14px;
+      border: 1.5px solid rgba(42,127,212,.2);
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--text);
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(42,127,212,.12);
+    }
+    textarea { resize: vertical; min-height: 110px; }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--blue);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+      margin-top: 8px;
+    }
+    .btn-submit:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+    .form-success {
+      display: none;
+      background: #e6f7ee;
+      border: 1px solid #34c77b;
+      border-radius: 8px;
+      padding: 16px 20px;
+      color: #1a6b3c;
+      font-weight: 600;
+      font-size: .95rem;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,.75);
+      padding: 56px 0 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .footer-brand-sub {
+      font-size: .8rem;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 16px;
+    }
+    .footer-slogan {
+      font-style: italic;
+      font-size: .9rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .footer-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      list-style: none;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,.75);
+      font-size: .9rem;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      list-style: none;
+    }
+    .footer-contact-list li {
+      font-size: .88rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-contact-list a { color: rgba(255,255,255,.75); }
+    .footer-contact-list a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: .82rem;
+      color: rgba(255,255,255,.4);
+    }
+
+    .footer-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .footer-badge {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: .75rem;
+      color: rgba(255,255,255,.6);
+    }
+
+    /* ===========================
+       WHATSAPP FLOAT
+    =========================== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      background: #25D366;
+      color: var(--white);
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.5);
+      transition: transform .2s, box-shadow .2s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 8px 28px rgba(37,211,102,.6); }
+    .whatsapp-float svg { width: 30px; height: 30px; }
+
+    .whatsapp-tooltip {
+      position: fixed;
+      bottom: 36px;
+      right: 96px;
+      z-index: 998;
+      background: var(--text);
+      color: var(--white);
+      font-size: .82rem;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 8px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateX(8px);
+      transition: opacity .2s, transform .2s;
+    }
+    .whatsapp-float:hover + .whatsapp-tooltip { opacity: 1; transform: translateX(0); }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 1080px) {
+      .nav-logo-sub { display: none; }
+      .nav-links a { padding: 6px 8px; font-size: .76rem; }
+    }
+
+    @media (max-width: 900px) {
+      .why-grid { grid-template-columns: 1fr; }
+      .why-image { height: 320px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 680px) {
+      section { padding: 64px 0; }
+      .hero-content { padding: 100px 0 60px; }
+      .hero-title { font-size: 2rem; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns a, .hero-btns button { width: 100%; justify-content: center; }
+      .form-row { grid-template-columns: 1fr; }
+      .nav-right .nav-cta { display: none; }
+      .nav-links { display: none !important; }
+      .hamburger { display: flex; }
+      .services-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .contact-form { padding: 28px 20px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .testimonial-inner { padding: 28px 20px; }
+    }
+
+    @media (max-width: 420px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .metrics-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Mobile nav menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: var(--white);
+      border-bottom: 1px solid rgba(42,127,212,.1);
+      padding: 20px 24px;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 999;
+      box-shadow: 0 8px 24px rgba(13,31,45,.1);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(42,127,212,.08);
+    }
+    .mobile-menu .mob-cta {
+      background: var(--gold);
+      color: var(--text);
+      text-align: center;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      border: none;
+    }
+
+    /* ===========================
+       ANIMATIONS
+    =========================== */
+
+    /* Fade-in-up on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .22s; }
+    .reveal-delay-3 { transition-delay: .34s; }
+    .reveal-delay-4 { transition-delay: .46s; }
+
+    /* Floating WhatsApp pulse */
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,.5); }
+      50%       { box-shadow: 0 4px 36px rgba(37,211,102,.85), 0 0 0 10px rgba(37,211,102,.12); }
+    }
+    .whatsapp-float { animation: wa-pulse 2.4s ease-in-out infinite; }
+
+    /* Sun spin in hero bg */
+    @keyframes sun-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .hero-sun-anim { transform-origin: 70px 70px; animation: sun-spin 18s linear infinite; }
+
+    /* Hero badge shimmer */
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .hero-badge {
+      background: linear-gradient(90deg, rgba(245,166,35,.1) 25%, rgba(245,166,35,.3) 50%, rgba(245,166,35,.1) 75%);
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+    }
+
+    /* Card hover lift already handled — add smooth scale on service icons */
+    .service-icon { transition: transform .3s ease; }
+    .service-card:hover .service-icon { transform: scale(1.25) rotate(-6deg); }
+
+    /* Trust bar items fade */
+    .trust-item { transition: transform .25s; }
+    .trust-item:hover { transform: translateY(-3px); }
+
+    /* Step number pulse on hover */
+    .step-card:hover .step-number {
+      background: var(--gold);
+      color: var(--text);
+      transition: background .3s, color .3s;
+    }
+
+    /* Metric counter pop */
+    @keyframes pop {
+      0%   { transform: scale(.8); opacity: 0; }
+      60%  { transform: scale(1.08); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .metric-number.animated { animation: pop .6s ease forwards; }
+
+    /* Floating bubbles in hero */
+    @keyframes float-up {
+      0%   { transform: translateY(0) scale(1);   opacity: .18; }
+      50%  { transform: translateY(-30px) scale(1.05); opacity: .28; }
+      100% { transform: translateY(0) scale(1);   opacity: .18; }
+    }
+    .bubble-anim-1 { animation: float-up 5s ease-in-out infinite; }
+    .bubble-anim-2 { animation: float-up 7s ease-in-out 1.5s infinite; }
+    .bubble-anim-3 { animation: float-up 6s ease-in-out 3s infinite; }
+
+    /* Nav logo sun spin slowly */
+    .nav-sun-spin { animation: sun-spin 30s linear infinite; }
+
+    /* CTA band button bounce */
+    @keyframes bounce-soft {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-4px); }
+    }
+    #cta-band .btn-dark:first-child { animation: bounce-soft 2.5s ease-in-out infinite; }
+
+    /* Testimonial card fade-slide */
+    .testimonials-track { will-change: transform; }
+
+  </style>
+</head>
+
+<body class="en">
+
+<!-- SVG SYMBOL DEFINITIONS (hidden) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+  <symbol id="sun-logo" viewBox="0 0 100 100">
+    <!-- Outer long rays (8 main) -->
+    <g stroke="#f5a623" stroke-linecap="round" fill="none">
+      <line x1="50" y1="4"  x2="50" y2="18"  stroke-width="4"/>
+      <line x1="50" y1="82" x2="50" y2="96"  stroke-width="4"/>
+      <line x1="4"  y1="50" x2="18" y2="50"  stroke-width="4"/>
+      <line x1="82" y1="50" x2="96" y2="50"  stroke-width="4"/>
+      <line x1="17" y1="17" x2="27" y2="27"  stroke-width="4"/>
+      <line x1="73" y1="73" x2="83" y2="83"  stroke-width="4"/>
+      <line x1="83" y1="17" x2="73" y2="27"  stroke-width="4"/>
+      <line x1="17" y1="83" x2="27" y2="73"  stroke-width="4"/>
+    </g>
+    <!-- Outer short rays (8 diagonal in-between) -->
+    <g stroke="#f5a623" stroke-linecap="round" fill="none">
+      <line x1="50" y1="10" x2="50" y2="19"  stroke-width="2.5" transform="rotate(22.5,50,50)"/>
+      <line x1="50" y1="10" x2="50" y2="19"  stroke-width="2.5" transform="rotate(67.5,50,50)"/>
+      <line x1="50" y1="10" x2="50" y2="19"  stroke-width="2.5" transform="rotate(112.5,50,50)"/>
+      <line x1="50" y1="10" x2="50" y2="19"  stroke-width="2.5" transform="rotate(157.5,50,50)"/>
+      <line x1="50" y1="10" x2="50" y2="19"  stroke-width="2.5" transform="rotate(202.5,50,50)"/>
+      <line x1="50" y1="10" x2="50" y2="19"  stroke-width="2.5" transform="rotate(247.5,50,50)"/>
+      <line x1="50" y1="10" x2="50" y2="19"  stroke-width="2.5" transform="rotate(292.5,50,50)"/>
+      <line x1="50" y1="10" x2="50" y2="19"  stroke-width="2.5" transform="rotate(337.5,50,50)"/>
+    </g>
+    <!-- Outer ring -->
+    <circle cx="50" cy="50" r="26" fill="none" stroke="#f5a623" stroke-width="2.5"/>
+    <!-- Inner ring -->
+    <circle cx="50" cy="50" r="19" fill="none" stroke="#f5a623" stroke-width="2"/>
+    <!-- Solid core -->
+    <circle cx="50" cy="50" r="13" fill="#f5a623"/>
+  </symbol>
+</svg>
+
+<!-- ===========================
+     WHATSAPP FLOAT
+=========================== -->
+<a href="https://wa.me/15704841280" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 2C8.28 2 2 8.28 2 16.004c0 2.48.648 4.81 1.784 6.836L2 30l7.364-1.756A13.93 13.93 0 0 0 16.004 30C23.72 30 30 23.72 30 16.004 30 8.28 23.72 2 16.004 2zm7.048 19.576c-.296.832-1.736 1.592-2.392 1.672-.648.088-1.272.32-4.288-1.04-3.608-1.608-5.912-5.28-6.088-5.528-.176-.24-1.44-1.912-1.44-3.648 0-1.728.904-2.576 1.224-2.928.32-.352.704-.432.936-.432l.672.016c.216.008.504-.08.792.608.296.704 1 2.432 1.088 2.616.088.176.144.384.024.616-.12.24-.184.384-.36.592l-.528.616c-.176.176-.36.368-.152.72.208.352.92 1.52 1.968 2.456 1.352 1.2 2.488 1.576 2.84 1.752.352.168.56.144.768-.088.208-.24.888-1.04 1.128-1.392.232-.352.464-.296.784-.176.32.12 2.04.96 2.392 1.136.352.176.584.264.672.408.088.144.088.832-.208 1.664z"/>
+  </svg>
+</a>
+<div class="whatsapp-tooltip">
+  <span class="txt-en">Chat on WhatsApp</span>
+  <span class="txt-es">Escríbenos por WhatsApp</span>
+</div>
+
+<!-- ===========================
+     NAVIGATION
+=========================== -->
+<nav id="navbar">
+  <div class="container nav-inner">
+
+    <a href="#" class="nav-logo">
+      <div class="sun-icon">
+        <svg width="52" height="52" viewBox="0 0 100 100"><use href="#sun-logo"/></svg>
+      </div>
+      <div>
+        <div class="nav-logo-text">Sunshine Cleaning Systems LLC</div>
+        <div class="nav-logo-sub">126 Outlook Court · East Stroudsburg, PA · Est. 2015</div>
+      </div>
+    </a>
+
+    <nav class="nav-links" id="nav-links">
+      <a href="#services">
+        <span class="txt-en">Services</span>
+        <span class="txt-es">Servicios</span>
+      </a>
+      <a href="#why">
+        <span class="txt-en">Why Us</span>
+        <span class="txt-es">Por Qué</span>
+      </a>
+      <a href="#testimonials">
+        <span class="txt-en">Reviews</span>
+        <span class="txt-es">Reseñas</span>
+      </a>
+      <a href="#how">
+        <span class="txt-en">How It Works</span>
+        <span class="txt-es">Cómo Funciona</span>
+      </a>
+      <a href="#contact">
+        <span class="txt-en">Contact</span>
+        <span class="txt-es">Contacto</span>
+      </a>
+    </nav>
+
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-es" onclick="setLang('es')">ES</button>
+      </div>
+      <a href="tel:+18556625326" class="nav-cta">
+        <span class="txt-en">📞 Call for a Free Quote</span>
+        <span class="txt-es">📞 Llama Gratis</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#services" onclick="toggleMenu()">
+    <span class="txt-en">Services</span>
+    <span class="txt-es">Servicios</span>
+  </a>
+  <a href="#why" onclick="toggleMenu()">
+    <span class="txt-en">Why Us</span>
+    <span class="txt-es">Por Qué Nosotros</span>
+  </a>
+  <a href="#how" onclick="toggleMenu()">
+    <span class="txt-en">How It Works</span>
+    <span class="txt-es">Cómo Funciona</span>
+  </a>
+  <a href="#contact" onclick="toggleMenu()">
+    <span class="txt-en">Contact</span>
+    <span class="txt-es">Contacto</span>
+  </a>
+  <a href="tel:+18556625326" class="mob-cta">
+    <span class="txt-en">📞 Call (855) 662-5326</span>
+    <span class="txt-es">📞 Llamar (855) 662-5326</span>
+  </a>
+</div>
+
+<!-- ===========================
+     HERO
+=========================== -->
+<section id="hero">
+  <div class="hero-bg">
+  <!-- Hero background: geometric circles like the proposal banner -->
+  <svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- Large right circle (like the proposal) -->
+    <circle cx="1150" cy="380" r="420" fill="#1a3a5c" opacity=".7"/>
+    <circle cx="1150" cy="380" r="340" fill="#1e4470" opacity=".5"/>
+    <circle cx="1150" cy="380" r="240" fill="#245288" opacity=".4"/>
+    <!-- Small accent circles -->
+    <circle cx="900" cy="700" r="180" fill="#1a3a5c" opacity=".4"/>
+    <circle cx="200" cy="650" r="120" fill="#1a3a5c" opacity=".25"/>
+    <circle cx="80"  cy="200" r="80"  fill="#1a3a5c" opacity=".2"/>
+    <!-- Subtle grid lines -->
+    <line x1="0" y1="400" x2="1440" y2="400" stroke="white" stroke-width=".5" opacity=".04"/>
+    <line x1="720" y1="0" x2="720" y2="800" stroke="white" stroke-width=".5" opacity=".04"/>
+    <!-- Sun logo (top-left, matching nav logo) - rendered via foreignObject trick / use -->
+    <image href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg stroke='%23f5a623' stroke-linecap='round' fill='none'%3E%3Cline x1='50' y1='4' x2='50' y2='18' stroke-width='4'/%3E%3Cline x1='50' y1='82' x2='50' y2='96' stroke-width='4'/%3E%3Cline x1='4' y1='50' x2='18' y2='50' stroke-width='4'/%3E%3Cline x1='82' y1='50' x2='96' y2='50' stroke-width='4'/%3E%3Cline x1='17' y1='17' x2='27' y2='27' stroke-width='4'/%3E%3Cline x1='73' y1='73' x2='83' y2='83' stroke-width='4'/%3E%3Cline x1='83' y1='17' x2='73' y2='27' stroke-width='4'/%3E%3Cline x1='17' y1='83' x2='27' y2='73' stroke-width='4'/%3E%3C/g%3E%3Ccircle cx='50' cy='50' r='26' fill='none' stroke='%23f5a623' stroke-width='2.5'/%3E%3Ccircle cx='50' cy='50' r='19' fill='none' stroke='%23f5a623' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='13' fill='%23f5a623'/%3E%3C/svg%3E" x="30" y="30" width="80" height="80"/>
+    <!-- Gold underline accent (like proposal title underline) -->
+    <rect x="80" y="560" width="220" height="6" rx="3" fill="#f5a623" opacity=".85"/>
+  </svg>
+</div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+
+    <div class="hero-badge">
+      <span>⭐</span>
+      <span class="txt-en">9 Years Serving Monroe County, PA</span>
+      <span class="txt-es">9 Años Sirviendo Monroe County, PA</span>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="txt-en">
+        A Spotless Home.<br>
+        <span class="gold-italic">A Fresh Clean Start.</span>
+        <span class="underline-bar">That Lasts.</span>
+      </span>
+      <span class="txt-es">
+        Un Hogar Impecable.<br>
+        <span class="gold-italic">Un Comienzo Limpio.</span>
+        <span class="underline-bar">Que Dura.</span>
+      </span>
+    </h1>
+
+    <p class="hero-sub">
+      <span class="txt-en">Residential &amp; commercial cleaning professionals serving East Stroudsburg and the Pocono Mountains. Licensed, insured, and bilingual.</span>
+      <span class="txt-es">Limpieza residencial y comercial para East Stroudsburg y las Montañas Pocono. Licenciados, asegurados y bilingües.</span>
+    </p>
+
+    <div class="hero-btns">
+      <a href="tel:+18556625326" class="btn-primary">
+        <span>📞</span>
+        <span class="txt-en">(855) 662-5326 — Free Quote</span>
+        <span class="txt-es">(855) 662-5326 — Cotización Gratis</span>
+      </a>
+      <a href="https://wa.me/15704841280" target="_blank" rel="noopener" class="btn-secondary">
+        <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor"><path d="M16.004 2C8.28 2 2 8.28 2 16.004c0 2.48.648 4.81 1.784 6.836L2 30l7.364-1.756A13.93 13.93 0 0 0 16.004 30C23.72 30 30 23.72 30 16.004 30 8.28 23.72 2 16.004 2zm7.048 19.576c-.296.832-1.736 1.592-2.392 1.672-.648.088-1.272.32-4.288-1.04-3.608-1.608-5.912-5.28-6.088-5.528-.176-.24-1.44-1.912-1.44-3.648 0-1.728.904-2.576 1.224-2.928.32-.352.704-.432.936-.432l.672.016c.216.008.504-.08.792.608.296.704 1 2.432 1.088 2.616.088.176.144.384.024.616-.12.24-.184.384-.36.592l-.528.616c-.176.176-.36.368-.152.72.208.352.92 1.52 1.968 2.456 1.352 1.2 2.488 1.576 2.84 1.752.352.176.56.144.768-.088.208-.24.888-1.04 1.128-1.392.232-.352.464-.296.784-.176.32.12 2.04.96 2.392 1.136.352.176.584.264.672.408.088.144.088.832-.208 1.664z"/></svg>
+        <span class="txt-en">WhatsApp Us</span>
+        <span class="txt-es">Escríbenos</span>
+      </a>
+    </div>
+
+    <div class="hero-trust">
+      <div class="hero-trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span class="txt-en">Licensed &amp; Insured in PA</span>
+        <span class="txt-es">Licenciados y Asegurados en PA</span>
+      </div>
+      <div class="hero-trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span class="txt-en">Est. 2015 · 9+ Years</span>
+        <span class="txt-es">Fundada 2015 · 9+ Años</span>
+      </div>
+      <div class="hero-trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span class="txt-en">EN / ES Bilingual Team</span>
+        <span class="txt-es">Equipo Bilingüe EN / ES</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===========================
+     TRUST BAR
+=========================== -->
+<div id="trust-bar">
+  <div class="container trust-bar-inner">
+    <div class="trust-item">
+      <div class="trust-item-icon">🏆</div>
+      <span class="txt-en">9+ Years in Business</span>
+      <span class="txt-es">9+ Años en el Negocio</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item-icon">🛡️</div>
+      <span class="txt-en">Licensed &amp; Insured</span>
+      <span class="txt-es">Licenciados y Asegurados</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item-icon">🌿</div>
+      <span class="txt-en">Eco-Friendly Products</span>
+      <span class="txt-es">Productos Ecológicos</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item-icon">🗣️</div>
+      <span class="txt-en">Bilingual Team (EN/ES)</span>
+      <span class="txt-es">Equipo Bilingüe (EN/ES)</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item-icon">⭐</div>
+      <span class="txt-en">4.9-Star Rated Service</span>
+      <span class="txt-es">Servicio Calificado 4.9 Estrellas</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===========================
+     SERVICES
+=========================== -->
+<section id="services">
+  <div class="container">
+    <div class="section-header center reveal">
+      <p class="section-label">
+        <span class="txt-en">What We Do</span>
+        <span class="txt-es">Lo Que Hacemos</span>
+      </p>
+      <h2 class="section-title">
+        <span class="txt-en">Our <span>Cleaning Services</span></span>
+        <span class="txt-es">Nuestros <span>Servicios de Limpieza</span></span>
+      </h2>
+      <p class="section-sub">
+        <span class="txt-en">No job too small or too large for us. We handle homes, offices, move-outs, and deep cleans across Monroe County.</span>
+        <span class="txt-es">Ningún trabajo es tan pequeño o tan grande para nosotros. Atendemos hogares, oficinas, mudanzas y limpiezas profundas en Monroe County.</span>
+      </p>
+    </div>
+
+    <div class="services-grid reveal reveal-delay-1">
+
+      <!-- Residential -->
+      <div class="service-card">
+        <div class="service-img" style="background:linear-gradient(135deg,#deeffe 0%,#c5e4fa 100%);display:flex;align-items:center;justify-content:center;">
+          <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <!-- Sky -->
+            <rect width="320" height="200" fill="url(#sky1)"/>
+            <defs>
+              <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#c5e4fa"/>
+                <stop offset="100%" stop-color="#e8f6ff"/>
+              </linearGradient>
+            </defs>
+            <!-- Ground -->
+            <rect x="0" y="162" width="320" height="38" fill="#b8dca0" rx="0"/>
+            <rect x="0" y="162" width="320" height="8" fill="#a0c880"/>
+            <!-- House body -->
+            <rect x="85" y="95" width="150" height="80" fill="#ffffff" stroke="#c0d8f0" stroke-width="2"/>
+            <!-- Roof -->
+            <polygon points="70,97 160,42 250,97" fill="#2a7fd4"/>
+            <polygon points="70,97 160,48 250,97" fill="#1a5fa0" opacity=".3"/>
+            <!-- Chimney -->
+            <rect x="195" y="55" width="18" height="32" fill="#c0392b"/>
+            <rect x="191" y="52" width="26" height="7" fill="#a93226" rx="2"/>
+            <!-- Smoke puffs -->
+            <circle cx="204" cy="44" r="7" fill="white" opacity=".7"/>
+            <circle cx="210" cy="36" r="5" fill="white" opacity=".5"/>
+            <circle cx="202" cy="30" r="4" fill="white" opacity=".35"/>
+            <!-- Door -->
+            <rect x="144" y="130" width="34" height="45" rx="3" fill="#f5a623"/>
+            <rect x="144" y="130" width="34" height="6" fill="#c97d0a" rx="3"/>
+            <circle cx="172" cy="155" r="3" fill="#fff"/>
+            <!-- Windows -->
+            <rect x="95" y="110" width="38" height="30" rx="3" fill="#aed6f1" stroke="#2a7fd4" stroke-width="1.5"/>
+            <line x1="114" y1="110" x2="114" y2="140" stroke="#2a7fd4" stroke-width="1"/>
+            <line x1="95" y1="125" x2="133" y2="125" stroke="#2a7fd4" stroke-width="1"/>
+            <rect x="187" y="110" width="38" height="30" rx="3" fill="#aed6f1" stroke="#2a7fd4" stroke-width="1.5"/>
+            <line x1="206" y1="110" x2="206" y2="140" stroke="#2a7fd4" stroke-width="1"/>
+            <line x1="187" y1="125" x2="225" y2="125" stroke="#2a7fd4" stroke-width="1"/>
+            <!-- Path to door -->
+            <rect x="152" y="175" width="18" height="20" fill="#d5c5a0" rx="2"/>
+            <!-- Flowers -->
+            <circle cx="92" cy="163" r="5" fill="#f5a623"/>
+            <rect x="91" y="163" width="2" height="8" fill="#5d8a3c"/>
+            <circle cx="240" cy="163" r="5" fill="#e74c9f"/>
+            <rect x="239" y="163" width="2" height="8" fill="#5d8a3c"/>
+            <!-- Tree -->
+            <rect x="46" y="148" width="6" height="20" fill="#8B5E3C"/>
+            <ellipse cx="49" cy="138" rx="18" ry="20" fill="#4a9e3f"/>
+            <ellipse cx="49" cy="132" rx="13" ry="15" fill="#5db850"/>
+            <!-- Cleaning bubbles -->
+            <circle cx="272" cy="55" r="14" fill="none" stroke="#2a7fd4" stroke-width="2" opacity=".5"/>
+            <circle cx="288" cy="38" r="9" fill="none" stroke="#2a7fd4" stroke-width="1.5" opacity=".4"/>
+            <circle cx="260" cy="38" r="6" fill="none" stroke="#f5a623" stroke-width="1.5" opacity=".5"/>
+            <!-- Sun -->
+            <circle cx="275" cy="28" r="14" fill="#f5a623" opacity=".9"/>
+            <g stroke="#f5a623" stroke-width="2" stroke-linecap="round">
+              <line x1="275" y1="9" x2="275" y2="4"/>
+              <line x1="275" y1="47" x2="275" y2="52"/>
+              <line x1="256" y1="28" x2="251" y2="28"/>
+              <line x1="294" y1="28" x2="299" y2="28"/>
+              <line x1="262" y1="15" x2="258" y2="11"/>
+              <line x1="288" y1="41" x2="292" y2="45"/>
+              <line x1="288" y1="15" x2="292" y2="11"/>
+              <line x1="262" y1="41" x2="258" y2="45"/>
+            </g>
+          </svg>
+          <div class="service-badge">
+            <span class="txt-en">Most Popular</span>
+            <span class="txt-es">Más Popular</span>
+          </div>
+        </div>
+        <div class="service-body">
+          <div class="service-icon">🏠</div>
+          <div class="service-name txt-en">Residential Cleaning</div>
+          <div class="service-name txt-es">Limpieza Residencial</div>
+          <div class="service-name-es txt-en">/ Limpieza Residencial</div>
+          <div class="service-name-es txt-es">/ Residential Cleaning</div>
+          <p class="service-desc">
+            <span class="txt-en">Regular and recurring cleaning for homes, apartments, and condos. We bring the shine every time.</span>
+            <span class="txt-es">Limpieza regular y recurrente para casas, apartamentos y condominios. Brillamos cada vez.</span>
+          </p>
+          <a href="#contact" class="service-link">
+            <span class="txt-en">Get a Quote</span>
+            <span class="txt-es">Pedir Cotización</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Commercial -->
+      <div class="service-card">
+        <div class="service-img" style="background:linear-gradient(135deg,#e8f0fc 0%,#d0dff8 100%);display:flex;align-items:center;justify-content:center;">
+          <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <defs>
+              <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#cfe0fa"/>
+                <stop offset="100%" stop-color="#e8f0fc"/>
+              </linearGradient>
+            </defs>
+            <rect width="320" height="200" fill="url(#sky2)"/>
+            <!-- Ground -->
+            <rect x="0" y="170" width="320" height="30" fill="#c8c8c8"/>
+            <!-- Building main -->
+            <rect x="60" y="30" width="200" height="145" fill="#f0f4f8" stroke="#b0c4de" stroke-width="2"/>
+            <!-- Building top band -->
+            <rect x="60" y="30" width="200" height="20" fill="#1a5fa0"/>
+            <!-- Company sign -->
+            <rect x="100" y="34" width="120" height="10" rx="2" fill="#f5a623" opacity=".9"/>
+            <!-- Floors - windows grid -->
+            <g fill="#aed6f1" stroke="#2a7fd4" stroke-width="1">
+              <!-- Floor 1 -->
+              <rect x="75" y="60" width="28" height="22" rx="2"/>
+              <rect x="115" y="60" width="28" height="22" rx="2"/>
+              <rect x="155" y="60" width="28" height="22" rx="2"/>
+              <rect x="195" y="60" width="28" height="22" rx="2"/>
+              <!-- Floor 2 -->
+              <rect x="75" y="92" width="28" height="22" rx="2"/>
+              <rect x="115" y="92" width="28" height="22" rx="2"/>
+              <rect x="155" y="92" width="28" height="22" rx="2"/>
+              <rect x="195" y="92" width="28" height="22" rx="2"/>
+              <!-- Floor 3 -->
+              <rect x="75" y="124" width="28" height="22" rx="2"/>
+              <rect x="115" y="124" width="28" height="22" rx="2"/>
+              <rect x="195" y="124" width="28" height="22" rx="2"/>
+            </g>
+            <!-- Glass door -->
+            <rect x="138" y="130" width="44" height="45" fill="#d0eaf8" stroke="#2a7fd4" stroke-width="1.5"/>
+            <line x1="160" y1="130" x2="160" y2="175" stroke="#2a7fd4" stroke-width="1"/>
+            <circle cx="170" cy="155" r="3" fill="#2a7fd4"/>
+            <!-- Cleaning person with mop -->
+            <circle cx="274" cy="100" r="12" fill="#f5a623"/>
+            <rect x="267" y="112" width="14" height="30" rx="5" fill="#2a7fd4"/>
+            <!-- Mop handle -->
+            <line x1="274" y1="125" x2="264" y2="168" stroke="#8B5E3C" stroke-width="3" stroke-linecap="round"/>
+            <ellipse cx="260" cy="170" rx="14" ry="5" fill="#aaa" opacity=".5"/>
+            <!-- Bucket -->
+            <rect x="286" y="148" width="16" height="18" rx="3" fill="#f5a623"/>
+            <rect x="284" y="145" width="20" height="5" rx="2" fill="#c97d0a"/>
+            <!-- Sparkles -->
+            <text x="28" y="70" font-size="18" opacity=".7">✨</text>
+            <text x="35" y="130" font-size="14" opacity=".6">⭐</text>
+          </svg>
+        </div>
+        <div class="service-body">
+          <div class="service-icon">🏢</div>
+          <div class="service-name txt-en">Commercial Cleaning</div>
+          <div class="service-name txt-es">Limpieza Comercial</div>
+          <div class="service-name-es txt-en">/ Limpieza Comercial</div>
+          <div class="service-name-es txt-es">/ Commercial Cleaning</div>
+          <p class="service-desc">
+            <span class="txt-en">Offices, retail spaces, and businesses kept spotless. First impressions matter — we make them count.</span>
+            <span class="txt-es">Oficinas, comercios y negocios impecables. Las primeras impresiones importan.</span>
+          </p>
+          <a href="#contact" class="service-link">
+            <span class="txt-en">Get a Quote</span>
+            <span class="txt-es">Pedir Cotización</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Move In/Out -->
+      <div class="service-card">
+        <div class="service-img" style="background:linear-gradient(135deg,#fff5e0 0%,#fde8b8 100%);display:flex;align-items:center;justify-content:center;">
+          <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <defs>
+              <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#fff5e0"/>
+                <stop offset="100%" stop-color="#fde8b8"/>
+              </linearGradient>
+            </defs>
+            <rect width="320" height="200" fill="url(#bg3)"/>
+            <!-- Floor -->
+            <rect x="0" y="178" width="320" height="22" fill="#d4b896"/>
+            <!-- Door frame left -->
+            <rect x="20" y="55" width="80" height="130" fill="#e8d5b0" stroke="#c4a46b" stroke-width="2.5" rx="3"/>
+            <rect x="20" y="55" width="80" height="14" fill="#c4a46b" rx="3"/>
+            <rect x="24" y="78" width="34" height="44" rx="2" fill="#b8cfe8" opacity=".7"/>
+            <rect x="62" y="78" width="34" height="44" rx="2" fill="#b8cfe8" opacity=".7"/>
+            <rect x="24" y="130" width="34" height="34" rx="2" fill="#b8cfe8" opacity=".7"/>
+            <rect x="62" y="130" width="34" height="34" rx="2" fill="#b8cfe8" opacity=".7"/>
+            <circle cx="56" cy="123" r="4" fill="#c4a46b"/>
+            <!-- Arrow -->
+            <g stroke="#2a7fd4" stroke-width="3" fill="none" stroke-linecap="round">
+              <line x1="118" y1="115" x2="158" y2="115"/>
+              <polyline points="148,105 160,115 148,125"/>
+            </g>
+            <!-- Box 1 large -->
+            <rect x="168" y="108" width="70" height="70" fill="#f5a623" rx="4"/>
+            <rect x="168" y="108" width="70" height="16" fill="#c97d0a" rx="4"/>
+            <line x1="203" y1="108" x2="203" y2="178" stroke="#c97d0a" stroke-width="1.5"/>
+            <!-- Tape strip -->
+            <rect x="186" y="103" width="34" height="8" rx="2" fill="#fff9e6" opacity=".9"/>
+            <line x1="186" y1="107" x2="220" y2="107" stroke="#c97d0a" stroke-width="1" opacity=".5"/>
+            <!-- Box 2 small stacked -->
+            <rect x="178" y="72" width="54" height="38" fill="#fbc043" rx="4"/>
+            <rect x="178" y="72" width="54" height="12" fill="#c97d0a" rx="4"/>
+            <line x1="205" y1="72" x2="205" y2="110" stroke="#c97d0a" stroke-width="1.5"/>
+            <rect x="191" y="67" width="28" height="7" rx="2" fill="#fff9e6" opacity=".9"/>
+            <!-- Box 3 side -->
+            <rect x="246" y="130" width="50" height="48" fill="#f5a623" rx="4" opacity=".85"/>
+            <rect x="246" y="130" width="50" height="14" fill="#c97d0a" rx="4" opacity=".85"/>
+            <rect x="257" y="126" width="28" height="7" rx="2" fill="#fff9e6" opacity=".85"/>
+            <!-- Sparkles -->
+            <text x="280" y="80" font-size="18" opacity=".8">✨</text>
+            <text x="26" y="42" font-size="14" opacity=".7">🔑</text>
+          </svg>
+        </div>
+        <div class="service-body">
+          <div class="service-icon">📦</div>
+          <div class="service-name txt-en">Move In / Move Out</div>
+          <div class="service-name txt-es">Entrada y Salida</div>
+          <div class="service-name-es txt-en">/ Entrada y Salida</div>
+          <div class="service-name-es txt-es">/ Move In / Move Out</div>
+          <p class="service-desc">
+            <span class="txt-en">Start fresh in your new home or leave your old one spotless for the next tenant or owner.</span>
+            <span class="txt-es">Comienza en tu nuevo hogar o deja el anterior impecable para el próximo inquilino o dueño.</span>
+          </p>
+          <a href="#contact" class="service-link">
+            <span class="txt-en">Get a Quote</span>
+            <span class="txt-es">Pedir Cotización</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Deep Cleaning -->
+      <div class="service-card">
+        <div class="service-img" style="background:linear-gradient(135deg,#e0f5ec 0%,#b8ecd4 100%);display:flex;align-items:center;justify-content:center;">
+          <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <defs>
+              <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#e0f5ec"/>
+                <stop offset="100%" stop-color="#b8ecd4"/>
+              </linearGradient>
+            </defs>
+            <rect width="320" height="200" fill="url(#bg4)"/>
+            <!-- Bathtub -->
+            <rect x="30" y="120" width="160" height="60" rx="12" fill="#f0f8ff" stroke="#b0c8e0" stroke-width="2.5"/>
+            <rect x="20" y="115" width="180" height="16" rx="6" fill="#d0e8f8" stroke="#b0c8e0" stroke-width="2"/>
+            <!-- Tub legs -->
+            <rect x="45" y="178" width="10" height="14" rx="3" fill="#b0c8e0"/>
+            <rect x="165" y="178" width="10" height="14" rx="3" fill="#b0c8e0"/>
+            <!-- Bubbles in tub -->
+            <circle cx="80" cy="128" r="10" fill="white" opacity=".8"/>
+            <circle cx="110" cy="122" r="7" fill="white" opacity=".7"/>
+            <circle cx="140" cy="128" r="9" fill="white" opacity=".75"/>
+            <circle cx="95" cy="115" r="5" fill="white" opacity=".6"/>
+            <!-- Faucet -->
+            <rect x="96" y="95" width="8" height="22" rx="3" fill="#b0c8e0"/>
+            <rect x="88" y="92" width="24" height="8" rx="4" fill="#90b0cc"/>
+            <!-- Spray bottle -->
+            <rect x="220" y="95" width="28" height="68" rx="8" fill="#2a7fd4"/>
+            <rect x="212" y="76" width="18" height="26" rx="6" fill="#1a5fa0"/>
+            <rect x="206" y="86" width="24" height="10" rx="4" fill="#2a7fd4"/>
+            <rect x="230" y="80" width="22" height="9" rx="4.5" fill="#1a5fa0"/>
+            <!-- Spray label -->
+            <rect x="224" y="110" width="20" height="32" rx="3" fill="white" opacity=".2"/>
+            <!-- Spray droplets -->
+            <g fill="#2a7fd4" opacity=".55">
+              <ellipse cx="260" cy="78" rx="5" ry="3" transform="rotate(-20,260,78)"/>
+              <ellipse cx="272" cy="68" rx="4" ry="2.5" transform="rotate(-30,272,68)"/>
+              <ellipse cx="264" cy="60" rx="3.5" ry="2" transform="rotate(-10,264,60)"/>
+              <ellipse cx="280" cy="76" rx="3" ry="2" transform="rotate(-35,280,76)"/>
+              <ellipse cx="276" cy="56" rx="3" ry="1.8" transform="rotate(-40,276,56)"/>
+            </g>
+            <!-- Scrub brush -->
+            <rect x="48" y="65" width="90" height="24" rx="7" fill="#f5a623"/>
+            <g fill="#c97d0a">
+              <rect x="56" y="88" width="6" height="14" rx="3"/>
+              <rect x="67" y="88" width="6" height="17" rx="3"/>
+              <rect x="78" y="88" width="6" height="14" rx="3"/>
+              <rect x="89" y="88" width="6" height="17" rx="3"/>
+              <rect x="100" y="88" width="6" height="14" rx="3"/>
+              <rect x="111" y="88" width="6" height="17" rx="3"/>
+              <rect x="122" y="88" width="6" height="14" rx="3"/>
+            </g>
+            <!-- Brush handle -->
+            <line x1="93" y1="65" x2="78" y2="30" stroke="#c97d0a" stroke-width="5" stroke-linecap="round"/>
+            <!-- Sparkles -->
+            <text x="268" y="130" font-size="20" opacity=".85">✨</text>
+            <text x="28" y="55" font-size="18" opacity=".8">✨</text>
+            <text x="160" y="50" font-size="14" opacity=".7">⭐</text>
+            <!-- Soap bubbles floating -->
+            <circle cx="175" cy="80" r="12" fill="none" stroke="#2a7fd4" stroke-width="1.5" opacity=".5"/>
+            <circle cx="192" cy="62" r="8" fill="none" stroke="#2a7fd4" stroke-width="1.5" opacity=".4"/>
+            <circle cx="170" cy="55" r="5" fill="none" stroke="#f5a623" stroke-width="1.5" opacity=".5"/>
+          </svg>
+        </div>
+        <div class="service-body">
+          <div class="service-icon">✨</div>
+          <div class="service-name txt-en">Deep Cleaning</div>
+          <div class="service-name txt-es">Limpieza Profunda</div>
+          <div class="service-name-es txt-en">/ Limpieza Profunda</div>
+          <div class="service-name-es txt-es">/ Deep Cleaning</div>
+          <p class="service-desc">
+            <span class="txt-en">Seasonal, post-construction, or special event cleaning. We go where regular cleaners don't.</span>
+            <span class="txt-es">Limpieza de temporada, post-construcción o para eventos especiales. Llegamos a donde otros no llegan.</span>
+          </p>
+          <a href="#contact" class="service-link">
+            <span class="txt-en">Get a Quote</span>
+            <span class="txt-es">Pedir Cotización</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     METRICS
+=========================== -->
+<section id="metrics">
+  <div class="container">
+    <div class="metrics-grid">
+      <div>
+        <div class="metric-number">9+</div>
+        <div class="metric-label">
+          <span class="txt-en">Years in Business</span>
+          <span class="txt-es">Años en el Negocio</span>
+        </div>
+      </div>
+      <div>
+        <div class="metric-number">500+</div>
+        <div class="metric-label">
+          <span class="txt-en">Happy Clients</span>
+          <span class="txt-es">Clientes Satisfechos</span>
+        </div>
+      </div>
+      <div>
+        <div class="metric-number">4.9★</div>
+        <div class="metric-label">
+          <span class="txt-en">Average Rating</span>
+          <span class="txt-es">Calificación Promedio</span>
+        </div>
+      </div>
+      <div>
+        <div class="metric-number">100%</div>
+        <div class="metric-label">
+          <span class="txt-en">Satisfaction Guarantee</span>
+          <span class="txt-es">Garantía de Satisfacción</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     WHY CHOOSE US
+=========================== -->
+<section id="why">
+  <div class="container">
+    <div class="why-grid">
+
+      <div class="why-image">
+        <svg viewBox="0 0 420 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+          <defs>
+            <linearGradient id="whybg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#e8f4fd"/>
+              <stop offset="100%" stop-color="#f0f8ff"/>
+            </linearGradient>
+          </defs>
+          <rect width="420" height="480" fill="url(#whybg)"/>
+          <!-- Floor -->
+          <rect x="0" y="400" width="420" height="80" fill="#e0d8c8"/>
+          <rect x="0" y="400" width="420" height="8" fill="#c8bfa8"/>
+          <!-- Baseboard -->
+          <rect x="0" y="390" width="420" height="12" fill="#d4cbb8"/>
+          <!-- Wall -->
+          <rect x="0" y="0" width="420" height="400" fill="#f5f0e8"/>
+          <!-- Window -->
+          <rect x="280" y="40" width="110" height="130" rx="4" fill="#c8e8f8" stroke="#b0c8de" stroke-width="3"/>
+          <line x1="335" y1="40" x2="335" y2="170" stroke="#b0c8de" stroke-width="2"/>
+          <line x1="280" y1="105" x2="390" y2="105" stroke="#b0c8de" stroke-width="2"/>
+          <rect x="280" y="40" width="110" height="14" fill="#b0c8de" rx="4"/>
+          <!-- Curtains -->
+          <path d="M280,40 Q295,80 285,170" fill="#fff0d0" stroke="#e8d0a0" stroke-width="1.5"/>
+          <path d="M390,40 Q375,80 385,170" fill="#fff0d0" stroke="#e8d0a0" stroke-width="1.5"/>
+          <!-- Person 1 - woman with mop -->
+          <circle cx="105" cy="170" r="36" fill="#fdd8a0"/>
+          <!-- Hair -->
+          <path d="M69,160 Q105,120 141,160 L141,150 Q105,108 69,150 Z" fill="#5c3d1e"/>
+          <!-- Face details -->
+          <circle cx="94" cy="168" r="3" fill="#e08060" opacity=".7"/>
+          <circle cx="116" cy="168" r="3" fill="#e08060" opacity=".7"/>
+          <path d="M96,180 Q105,188 114,180" fill="none" stroke="#c06040" stroke-width="2" stroke-linecap="round"/>
+          <!-- Body uniform blue -->
+          <rect x="72" y="204" width="66" height="100" rx="10" fill="#2a7fd4"/>
+          <!-- Apron -->
+          <rect x="82" y="212" width="46" height="85" rx="6" fill="#1a5fa0"/>
+          <text x="105" y="262" text-anchor="middle" font-size="8" fill="white" font-family="DM Sans,sans-serif" font-weight="700">SUNSHINE</text>
+          <!-- Arms -->
+          <rect x="52" y="210" width="22" height="60" rx="10" fill="#2a7fd4"/>
+          <rect x="136" y="210" width="22" height="60" rx="10" fill="#2a7fd4"/>
+          <!-- Hands -->
+          <circle cx="63" cy="272" r="10" fill="#fdd8a0"/>
+          <circle cx="147" cy="272" r="10" fill="#fdd8a0"/>
+          <!-- Legs -->
+          <rect x="80" y="300" width="22" height="90" rx="8" fill="#1a3a5c"/>
+          <rect x="108" y="300" width="22" height="90" rx="8" fill="#1a3a5c"/>
+          <!-- Shoes -->
+          <ellipse cx="91" cy="392" rx="18" ry="8" fill="#333"/>
+          <ellipse cx="119" cy="392" rx="18" ry="8" fill="#333"/>
+          <!-- Mop handle -->
+          <line x1="63" y1="272" x2="48" y2="395" stroke="#8B5E3C" stroke-width="5" stroke-linecap="round"/>
+          <!-- Mop head -->
+          <ellipse cx="44" cy="398" rx="26" ry="9" fill="#b0b0b0" opacity=".6"/>
+          <g stroke="#909090" stroke-width="1.5" opacity=".8">
+            <line x1="22" y1="394" x2="18" y2="406"/>
+            <line x1="30" y1="396" x2="27" y2="408"/>
+            <line x1="38" y1="397" x2="36" y2="409"/>
+            <line x1="46" y1="397" x2="44" y2="409"/>
+            <line x1="54" y1="397" x2="52" y2="409"/>
+            <line x1="62" y1="396" x2="60" y2="408"/>
+          </g>
+          <!-- Person 2 - man with spray -->
+          <circle cx="280" cy="185" r="38" fill="#fdc890"/>
+          <!-- Hair -->
+          <path d="M242,178 Q280,140 318,178 L318,165 Q280,125 242,165 Z" fill="#2c1a0e"/>
+          <!-- Face -->
+          <circle cx="268" cy="183" r="3.5" fill="#c06040" opacity=".6"/>
+          <circle cx="292" cy="183" r="3.5" fill="#c06040" opacity=".6"/>
+          <path d="M270,196 Q280,205 290,196" fill="none" stroke="#c06040" stroke-width="2" stroke-linecap="round"/>
+          <!-- Body uniform -->
+          <rect x="244" y="221" width="72" height="105" rx="10" fill="#2a7fd4"/>
+          <rect x="254" y="229" width="52" height="88" rx="6" fill="#1a5fa0"/>
+          <text x="280" y="278" text-anchor="middle" font-size="8" fill="white" font-family="DM Sans,sans-serif" font-weight="700">SUNSHINE</text>
+          <!-- Arms -->
+          <rect x="222" y="225" width="24" height="65" rx="10" fill="#2a7fd4"/>
+          <rect x="314" y="225" width="24" height="65" rx="10" fill="#2a7fd4"/>
+          <!-- Hands -->
+          <circle cx="234" cy="292" r="11" fill="#fdc890"/>
+          <circle cx="326" cy="292" r="11" fill="#fdc890"/>
+          <!-- Legs -->
+          <rect x="253" y="322" width="24" height="78" rx="8" fill="#1a3a5c"/>
+          <rect x="283" y="322" width="24" height="78" rx="8" fill="#1a3a5c"/>
+          <ellipse cx="265" cy="400" rx="20" ry="8" fill="#333"/>
+          <ellipse cx="295" cy="400" rx="20" ry="8" fill="#333"/>
+          <!-- Spray bottle in hand -->
+          <rect x="318" y="265" width="20" height="48" rx="6" fill="#f5a623"/>
+          <rect x="312" y="253" width="14" height="20" rx="4" fill="#c97d0a"/>
+          <rect x="308" y="260" width="18" height="8" rx="3" fill="#f5a623"/>
+          <rect x="328" y="255" width="16" height="7" rx="3.5" fill="#c97d0a"/>
+          <!-- Spray drops -->
+          <g fill="#2a7fd4" opacity=".5">
+            <circle cx="355" cy="248" r="4"/>
+            <circle cx="363" cy="238" r="3"/>
+            <circle cx="368" cy="253" r="2.5"/>
+            <circle cx="358" cy="232" r="2"/>
+          </g>
+          <!-- Bucket -->
+          <rect x="160" y="348" width="46" height="44" rx="6" fill="#f5a623"/>
+          <rect x="155" y="342" width="56" height="12" rx="5" fill="#c97d0a"/>
+          <!-- Bubbles from bucket -->
+          <circle cx="172" cy="332" r="9" fill="none" stroke="#2a7fd4" stroke-width="2" opacity=".5"/>
+          <circle cx="192" cy="320" r="6" fill="none" stroke="#2a7fd4" stroke-width="1.5" opacity=".4"/>
+          <circle cx="206" cy="330" r="7" fill="none" stroke="#f5a623" stroke-width="1.5" opacity=".45"/>
+          <!-- Stars rating banner -->
+          <rect x="80" y="440" width="260" height="32" rx="8" fill="#2a7fd4" opacity=".12"/>
+          <text x="210" y="461" text-anchor="middle" font-size="16" fill="#f5a623">★★★★★</text>
+          <text x="210" y="475" text-anchor="middle" font-size="10" fill="#7a90a4" font-family="DM Sans,sans-serif">4.9 estrellas · 500+ clientes felices</text>
+          <!-- Shield -->
+          <path d="M192,35 Q210,70 228,35 L228,14 Q210,5 192,14 Z" fill="#2a7fd4" opacity=".15" stroke="#2a7fd4" stroke-width="2"/>
+          <text x="210" y="50" text-anchor="middle" font-size="20">🛡️</text>
+          <!-- Sparkles -->
+          <text x="22" y="130" font-size="16" opacity=".7">✨</text>
+          <text x="378" y="350" font-size="16" opacity=".7">✨</text>
+          <text x="378" y="160" font-size="14" opacity=".6">⭐</text>
+        </svg>
+      </div>
+
+      <div>
+        <div class="section-header">
+          <p class="section-label">
+            <span class="txt-en">Our Difference</span>
+            <span class="txt-es">Nuestra Diferencia</span>
+          </p>
+          <h2 class="section-title">
+            <span class="txt-en">Why Families &amp; Businesses <span>Choose Us</span></span>
+            <span class="txt-es">Por Qué Familias y Negocios <span>Nos Eligen</span></span>
+          </h2>
+        </div>
+
+        <div class="why-points">
+          <div class="why-point">
+            <div class="why-point-icon">🛡️</div>
+            <div>
+              <div class="why-point-title">
+                <span class="txt-en">Licensed &amp; Insured</span>
+                <span class="txt-es">Licenciados y Asegurados</span>
+              </div>
+              <div class="why-point-desc">
+                <span class="txt-en">Fully licensed and insured in Pennsylvania. Your home and belongings are protected.</span>
+                <span class="txt-es">Completamente licenciados y asegurados en Pennsylvania. Su hogar y pertenencias están protegidos.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="why-point">
+            <div class="why-point-icon">🗣️</div>
+            <div>
+              <div class="why-point-title">
+                <span class="txt-en">Bilingual Team</span>
+                <span class="txt-es">Equipo Bilingüe</span>
+              </div>
+              <div class="why-point-desc">
+                <span class="txt-en">We communicate fluently in English and Spanish — no misunderstandings, just great service.</span>
+                <span class="txt-es">Nos comunicamos con fluidez en inglés y español — sin malentendidos, solo excelente servicio.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="why-point">
+            <div class="why-point-icon">⏱️</div>
+            <div>
+              <div class="why-point-title">
+                <span class="txt-en">Reliable &amp; On Time</span>
+                <span class="txt-es">Confiables y Puntuales</span>
+              </div>
+              <div class="why-point-desc">
+                <span class="txt-en">9 years of on-time service. We show up when we say we will — every single time.</span>
+                <span class="txt-es">9 años de servicio puntual. Llegamos cuando decimos que llegamos — siempre.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="why-point">
+            <div class="why-point-icon">🌿</div>
+            <div>
+              <div class="why-point-title">
+                <span class="txt-en">Eco-Friendly Products</span>
+                <span class="txt-es">Productos Ecológicos</span>
+              </div>
+              <div class="why-point-desc">
+                <span class="txt-en">Safe for your children, pets, and the environment. We clean green.</span>
+                <span class="txt-es">Seguros para sus hijos, mascotas y el medio ambiente. Limpiamos con responsabilidad.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="why-point">
+            <div class="why-point-icon">💯</div>
+            <div>
+              <div class="why-point-title">
+                <span class="txt-en">Satisfaction Guaranteed</span>
+                <span class="txt-es">Satisfacción Garantizada</span>
+              </div>
+              <div class="why-point-desc">
+                <span class="txt-en">Not happy with any area? We come back and re-clean it at no extra cost.</span>
+                <span class="txt-es">¿No está satisfecho con algún área? Regresamos y la limpiamos de nuevo sin costo adicional.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     TESTIMONIALS
+=========================== -->
+<section id="testimonials">
+  <div class="container">
+
+    <!-- Google branding header -->
+    <div class="google-overall">
+      <div class="google-header">
+        <span class="google-logo">
+          <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+        </span>
+        <span style="font-size:.95rem;color:var(--muted);font-weight:500;">Reviews</span>
+      </div>
+      <div class="google-score">4.9</div>
+      <div class="google-stars-row">
+        <!-- 5 filled stars -->
+        <svg class="g-star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg class="g-star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg class="g-star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg class="g-star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg class="g-star" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+      </div>
+      <div class="google-count">
+        <span class="txt-en">Based on 80+ Google Reviews</span>
+        <span class="txt-es">Basado en 80+ Reseñas de Google</span>
+      </div>
+    </div>
+
+    <!-- Review cards grid -->
+    <div class="reviews-grid">
+
+      <!-- Card 1 -->
+      <div class="gcard reveal reveal-delay-1">
+        <div class="gcard-top">
+          <div class="gcard-avatar" style="background:#4285F4;">M</div>
+          <div>
+            <div class="gcard-name">Maria L.</div>
+            <div class="gcard-date">
+              <span class="txt-en">2 months ago</span>
+              <span class="txt-es">Hace 2 meses</span>
+            </div>
+          </div>
+        </div>
+        <div class="gcard-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="gcard-text">"Sunshine Cleaning has been cleaning my home for over three years. They are thorough, trustworthy, and always leave everything spotless. I wouldn't trust anyone else with my house."</p>
+        <div class="gcard-bottom">
+          <span class="google-logo" style="font-size:.85rem;"><span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span></span>
+          <span class="gcard-source">· East Stroudsburg, PA</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="gcard reveal reveal-delay-2">
+        <div class="gcard-top">
+          <div class="gcard-avatar" style="background:#EA4335;">J</div>
+          <div>
+            <div class="gcard-name">James R.</div>
+            <div class="gcard-date">
+              <span class="txt-en">3 months ago</span>
+              <span class="txt-es">Hace 3 meses</span>
+            </div>
+          </div>
+        </div>
+        <div class="gcard-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="gcard-text">"We hired Sunshine for our office and the difference was immediate. Professional, fast, and the bilingual team made communication so easy. Highly recommend to any business owner."</p>
+        <div class="gcard-bottom">
+          <span class="google-logo" style="font-size:.85rem;"><span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span></span>
+          <span class="gcard-source">· Stroudsburg, PA</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="gcard reveal reveal-delay-3">
+        <div class="gcard-top">
+          <div class="gcard-avatar" style="background:#34A853;">A</div>
+          <div>
+            <div class="gcard-name">Ana G.</div>
+            <div class="gcard-date">
+              <span class="txt-en">1 month ago</span>
+              <span class="txt-es">Hace 1 mes</span>
+            </div>
+          </div>
+        </div>
+        <div class="gcard-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="gcard-text">"Contraté a Sunshine para la limpieza de mudanza y quedé impresionada. El apartamento quedó como nuevo. Son profesionales, puntuales y muy amables. ¡Los recomiendo al 100%!"</p>
+        <div class="gcard-bottom">
+          <span class="google-logo" style="font-size:.85rem;"><span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span></span>
+          <span class="gcard-source">· Tannersville, PA</span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="gcard reveal reveal-delay-4">
+        <div class="gcard-top">
+          <div class="gcard-avatar" style="background:#FBBC05;color:#333;">D</div>
+          <div>
+            <div class="gcard-name">David K.</div>
+            <div class="gcard-date">
+              <span class="txt-en">5 months ago</span>
+              <span class="txt-es">Hace 5 meses</span>
+            </div>
+          </div>
+        </div>
+        <div class="gcard-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="gcard-text">"I manage several rental properties in the Poconos and Sunshine is my go-to for every turnover. Consistent quality, easy to schedule, and they never disappoint."</p>
+        <div class="gcard-bottom">
+          <span class="google-logo" style="font-size:.85rem;"><span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span></span>
+          <span class="gcard-source">· Pocono Summit, PA</span>
+        </div>
+      </div>
+
+    </div><!-- /reviews-grid -->
+
+    <!-- Ver todas en Google -->
+    <div style="text-align:center;">
+      <a href="https://www.google.com/search?q=Sunshine+Cleaning+Systems+LLC+East+Stroudsburg+PA" target="_blank" rel="noopener" class="view-google-btn">
+        <span class="google-logo" style="font-size:1rem;"><span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span></span>
+        <span class="txt-en">See all reviews on Google</span>
+        <span class="txt-es">Ver todas las reseñas en Google</span>
+        <span>→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===========================
+     HOW IT WORKS
+=========================== -->
+<section id="how">
+  <div class="container">
+    <div class="section-header center">
+      <p class="section-label">
+        <span class="txt-en">Simple Process</span>
+        <span class="txt-es">Proceso Simple</span>
+      </p>
+      <h2 class="section-title">
+        <span class="txt-en">Getting Started is <span>Easy</span></span>
+        <span class="txt-es">Empezar es <span>Fácil</span></span>
+      </h2>
+      <p class="section-sub">
+        <span class="txt-en">Four simple steps to a cleaner home or office.</span>
+        <span class="txt-es">Cuatro pasos sencillos para un hogar u oficina más limpia.</span>
+      </p>
+    </div>
+
+    <div class="steps-grid">
+
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <div class="step-icon">📞</div>
+        <div class="step-title">
+          <span class="txt-en">Call or Message Us</span>
+          <span class="txt-es">Llama o Escríbenos</span>
+        </div>
+        <p class="step-desc">
+          <span class="txt-en">Call (855) 662-5326 or send a WhatsApp. We're available 7 days a week.</span>
+          <span class="txt-es">Llama al (855) 662-5326 o envía un WhatsApp. Disponibles 7 días a la semana.</span>
+        </p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <div class="step-icon">📋</div>
+        <div class="step-title">
+          <span class="txt-en">Get a Free Quote</span>
+          <span class="txt-es">Recibe una Cotización Gratis</span>
+        </div>
+        <p class="step-desc">
+          <span class="txt-en">Tell us about your space and needs. We'll give you a clear, honest price — no surprises.</span>
+          <span class="txt-es">Cuéntanos sobre tu espacio y necesidades. Te daremos un precio claro y honesto, sin sorpresas.</span>
+        </p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <div class="step-icon">📅</div>
+        <div class="step-title">
+          <span class="txt-en">Schedule Your Clean</span>
+          <span class="txt-es">Programa tu Limpieza</span>
+        </div>
+        <p class="step-desc">
+          <span class="txt-en">Pick a date and time that works for you. We're flexible and work around your schedule.</span>
+          <span class="txt-es">Elige la fecha y hora que te convenga. Somos flexibles y nos adaptamos a tu horario.</span>
+        </p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <div class="step-icon">✨</div>
+        <div class="step-title">
+          <span class="txt-en">Enjoy a Spotless Space</span>
+          <span class="txt-es">Disfruta un Espacio Impecable</span>
+        </div>
+        <p class="step-desc">
+          <span class="txt-en">Sit back while we do all the work. Come home to a clean, fresh, welcoming space.</span>
+          <span class="txt-es">Descansa mientras nosotros hacemos todo el trabajo. Regresa a un hogar limpio y fresco.</span>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     CTA BAND
+=========================== -->
+<section id="cta-band">
+  <div class="container">
+    <h2 class="cta-band-title">
+      <span class="txt-en">Ready for a Cleaner Space?</span>
+      <span class="txt-es">¿Listo para un Espacio más Limpio?</span>
+    </h2>
+    <p class="cta-band-sub">
+      <span class="txt-en">Call us today for a free, no-obligation quote. Serving East Stroudsburg and all of Monroe County.</span>
+      <span class="txt-es">Llámanos hoy para una cotización gratis y sin compromiso. Atendemos East Stroudsburg y todo Monroe County.</span>
+    </p>
+    <div class="cta-band-btns">
+      <a href="tel:+18556625326" class="btn-dark">
+        📞
+        <span class="txt-en">Call (855) 662-5326</span>
+        <span class="txt-es">Llamar (855) 662-5326</span>
+      </a>
+      <a href="https://wa.me/15704841280" target="_blank" rel="noopener" class="btn-whatsapp">
+        <svg width="20" height="20" viewBox="0 0 32 32" fill="white"><path d="M16.004 2C8.28 2 2 8.28 2 16.004c0 2.48.648 4.81 1.784 6.836L2 30l7.364-1.756A13.93 13.93 0 0 0 16.004 30C23.72 30 30 23.72 30 16.004 30 8.28 23.72 2 16.004 2zm7.048 19.576c-.296.832-1.736 1.592-2.392 1.672-.648.088-1.272.32-4.288-1.04-3.608-1.608-5.912-5.28-6.088-5.528-.176-.24-1.44-1.912-1.44-3.648 0-1.728.904-2.576 1.224-2.928.32-.352.704-.432.936-.432l.672.016c.216.008.504-.08.792.608.296.704 1 2.432 1.088 2.616.088.176.144.384.024.616-.12.24-.184.384-.36.592l-.528.616c-.176.176-.36.368-.152.72.208.352.92 1.52 1.968 2.456 1.352 1.2 2.488 1.576 2.84 1.752.352.176.56.144.768-.088.208-.24.888-1.04 1.128-1.392.232-.352.464-.296.784-.176.32.12 2.04.96 2.392 1.136.352.176.584.264.672.408.088.144.088.832-.208 1.664z"/></svg>
+        WhatsApp
+      </a>
+      <a href="#contact" class="btn-dark" style="background:rgba(13,31,45,.5);">
+        <span class="txt-en">✉️ Send a Message</span>
+        <span class="txt-es">✉️ Enviar Mensaje</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     CONTACT
+=========================== -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header center">
+      <p class="section-label">
+        <span class="txt-en">Get in Touch</span>
+        <span class="txt-es">Contáctanos</span>
+      </p>
+      <h2 class="section-title">
+        <span class="txt-en">Request a <span>Free Quote</span></span>
+        <span class="txt-es">Solicita una <span>Cotización Gratis</span></span>
+      </h2>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Info -->
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div>
+            <div class="contact-item-label">
+              <span class="txt-en">Main Phone</span>
+              <span class="txt-es">Teléfono Principal</span>
+            </div>
+            <div class="contact-item-value"><a href="tel:+18556625326">(855) 662-5326</a></div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">📱</div>
+          <div>
+            <div class="contact-item-label">
+              <span class="txt-en">Mobile / WhatsApp</span>
+              <span class="txt-es">Móvil / WhatsApp</span>
+            </div>
+            <div class="contact-item-value">
+              <a href="tel:+15704841280">(570) 484-1280</a><br>
+              <a href="tel:+15704841468">(570) 484-1468</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value">
+              <a href="mailto:sunshinecleaningsystemsllc@gmail.com">sunshinecleaningsystemsllc@gmail.com</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <div class="contact-item-label">
+              <span class="txt-en">Address</span>
+              <span class="txt-es">Dirección</span>
+            </div>
+            <div class="contact-item-value">
+              126 Outlook Court<br>East Stroudsburg, PA 18302
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">🕐</div>
+          <div>
+            <div class="contact-item-label">
+              <span class="txt-en">Service Hours</span>
+              <span class="txt-es">Horario de Servicio</span>
+            </div>
+            <div class="contact-item-value">
+              <span class="txt-en">Mon – Sat: 8am – 6pm<br>Sun: By appointment</span>
+              <span class="txt-es">Lun – Sáb: 8am – 6pm<br>Dom: Con cita previa</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://wa.me/15704841280" target="_blank" rel="noopener" class="btn-whatsapp" style="display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:10px;font-size:.95rem;">
+          <svg width="20" height="20" viewBox="0 0 32 32" fill="white"><path d="M16.004 2C8.28 2 2 8.28 2 16.004c0 2.48.648 4.81 1.784 6.836L2 30l7.364-1.756A13.93 13.93 0 0 0 16.004 30C23.72 30 30 23.72 30 16.004 30 8.28 23.72 2 16.004 2zm7.048 19.576c-.296.832-1.736 1.592-2.392 1.672-.648.088-1.272.32-4.288-1.04-3.608-1.608-5.912-5.28-6.088-5.528-.176-.24-1.44-1.912-1.44-3.648 0-1.728.904-2.576 1.224-2.928.32-.352.704-.432.936-.432l.672.016c.216.008.504-.08.792.608.296.704 1 2.432 1.088 2.616.088.176.144.384.024.616-.12.24-.184.384-.36.592l-.528.616c-.176.176-.36.368-.152.72.208.352.92 1.52 1.968 2.456 1.352 1.2 2.488 1.576 2.84 1.752.352.176.56.144.768-.088.208-.24.888-1.04 1.128-1.392.232-.352.464-.296.784-.176.32.12 2.04.96 2.392 1.136.352.176.584.264.672.408.088.144.088.832-.208 1.664z"/></svg>
+          <span class="txt-en">Chat on WhatsApp — Fast Response</span>
+          <span class="txt-es">Escríbenos por WhatsApp — Respuesta Rápida</span>
+        </a>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form">
+        <div class="form-title">
+          <span class="txt-en">Tell Us About Your Space</span>
+          <span class="txt-es">Cuéntanos Sobre Tu Espacio</span>
+        </div>
+        <div class="form-sub">
+          <span class="txt-en">We'll get back to you within 24 hours with a personalized quote.</span>
+          <span class="txt-es">Te responderemos en menos de 24 horas con una cotización personalizada.</span>
+        </div>
+
+        <form id="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">
+                <span class="txt-en">First Name</span>
+                <span class="txt-es">Nombre</span>
+              </label>
+              <input type="text" id="fname" name="fname" required placeholder="Maria" />
+            </div>
+            <div class="form-group">
+              <label for="lname">
+                <span class="txt-en">Last Name</span>
+                <span class="txt-es">Apellido</span>
+              </label>
+              <input type="text" id="lname" name="lname" required placeholder="Lopez" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">
+                <span class="txt-en">Phone</span>
+                <span class="txt-es">Teléfono</span>
+              </label>
+              <input type="tel" id="phone" name="phone" required placeholder="(570) 000-0000" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@email.com" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="service">
+              <span class="txt-en">Service Needed</span>
+              <span class="txt-es">Servicio Necesario</span>
+            </label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>
+                <span class="txt-en">Select a service…</span>
+              </option>
+              <option value="residential">Residential / Residencial</option>
+              <option value="commercial">Commercial / Comercial</option>
+              <option value="moveinout">Move In/Out / Entrada y Salida</option>
+              <option value="deep">Deep Cleaning / Limpieza Profunda</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">
+              <span class="txt-en">Message (optional)</span>
+              <span class="txt-es">Mensaje (opcional)</span>
+            </label>
+            <textarea id="message" name="message" placeholder="Tell us about your space, frequency, any special requirements…"></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            <span class="txt-en">Send My Quote Request →</span>
+            <span class="txt-es">Enviar Mi Solicitud de Cotización →</span>
+          </button>
+        </form>
+
+        <div class="form-success" id="form-success">
+          <span class="txt-en">✅ Thank you! We'll be in touch within 24 hours.</span>
+          <span class="txt-es">✅ ¡Gracias! Te contactaremos en menos de 24 horas.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     FOOTER
+=========================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+          <svg width="44" height="44" viewBox="0 0 100 100" style="flex-shrink:0;"><use href="#sun-logo"/></svg>
+          <div class="footer-brand-name">Sunshine Cleaning Systems LLC</div>
+        </div>
+        <div class="footer-brand-sub">
+          <span class="txt-en">Est. 2015 · East Stroudsburg, PA 18302</span>
+          <span class="txt-es">Fund. 2015 · East Stroudsburg, PA 18302</span>
+        </div>
+        <div class="footer-slogan">
+          <span class="txt-en">"No job too small or too large for us."</span>
+          <span class="txt-es">"Ningún trabajo es tan pequeño o tan grande para nosotros."</span>
+        </div>
+        <div class="footer-badges">
+          <span class="footer-badge">
+            <span class="txt-en">Licensed in PA</span>
+            <span class="txt-es">Licenciado en PA</span>
+          </span>
+          <span class="footer-badge">
+            <span class="txt-en">Insured</span>
+            <span class="txt-es">Asegurado</span>
+          </span>
+          <span class="footer-badge">
+            <span class="txt-en">Bilingual</span>
+            <span class="txt-es">Bilingüe</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <div class="footer-heading">
+          <span class="txt-en">Services</span>
+          <span class="txt-es">Servicios</span>
+        </div>
+        <ul class="footer-links">
+          <li><a href="#services">
+            <span class="txt-en">Residential Cleaning</span>
+            <span class="txt-es">Limpieza Residencial</span>
+          </a></li>
+          <li><a href="#services">
+            <span class="txt-en">Commercial Cleaning</span>
+            <span class="txt-es">Limpieza Comercial</span>
+          </a></li>
+          <li><a href="#services">
+            <span class="txt-en">Move In / Move Out</span>
+            <span class="txt-es">Entrada y Salida</span>
+          </a></li>
+          <li><a href="#services">
+            <span class="txt-en">Deep Cleaning</span>
+            <span class="txt-es">Limpieza Profunda</span>
+          </a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <div class="footer-heading">
+          <span class="txt-en">Contact</span>
+          <span class="txt-es">Contacto</span>
+        </div>
+        <ul class="footer-contact-list">
+          <li>📞 <a href="tel:+18556625326">(855) 662-5326</a></li>
+          <li>📱 <a href="tel:+15704841280">(570) 484-1280</a></li>
+          <li>📱 <a href="tel:+15704841468">(570) 484-1468</a></li>
+          <li>✉️ <a href="mailto:sunshinecleaningsystemsllc@gmail.com">sunshinecleaningsystemsllc@gmail.com</a></li>
+          <li>📍 126 Outlook Ct, East Stroudsburg PA</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2024 Sunshine Cleaning Systems LLC.
+        <span class="txt-en">All rights reserved.</span>
+        <span class="txt-es">Todos los derechos reservados.</span>
+      </span>
+      <span>
+        <span class="txt-en">Serving Monroe County, PA &amp; Pocono Mountains</span>
+        <span class="txt-es">Sirviendo Monroe County, PA y las Montañas Pocono</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===========================
+     JAVASCRIPT
+=========================== -->
+<script>
+  // Language toggle
+  function setLang(lang) {
+    document.body.className = lang;
+    document.documentElement.lang = lang;
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  }
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+
+  // Testimonial slider
+  let current = 0;
+  const total = 4;
+
+  function goTo(index) {
+    current = index;
+    document.getElementById('track').style.transform = `translateX(-${current * 100}%)`;
+    document.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  function slideBy(dir) {
+    goTo((current + dir + total) % total);
+  }
+
+  // Auto-advance slider every 5s
+  setInterval(() => slideBy(1), 5000);
+
+  // Contact form
+  function handleSubmit(e) {
+    e.preventDefault();
+    // Build mailto link
+    const fname = document.getElementById('fname').value;
+    const lname = document.getElementById('lname').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    const service = document.getElementById('service').value;
+    const message = document.getElementById('message').value;
+
+    const body = `Name: ${fname} ${lname}%0APhone: ${phone}%0AEmail: ${email}%0AService: ${service}%0AMessage: ${message}`;
+    window.location.href = `mailto:sunshinecleaningsystemsllc@gmail.com?subject=Quote Request - Sunshine Cleaning&body=${body}`;
+
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }
+
+  // ===========================
+  // ===========================
+  // ACTIVE NAV LINK ON SCROLL
+  // ===========================
+  const sections = document.querySelectorAll('section[id], div[id="trust-bar"]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 100) current = sec.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }, { passive: true });
+
+  // SCROLL REVEAL ANIMATION
+  // ===========================
+  const revealEls = document.querySelectorAll('.section-header, .service-card, .step-card, .why-point, .why-image, .contact-form, .contact-info, .testimonial-inner, .metric-number, .trust-item, .footer-grid > div');
+  revealEls.forEach((el, i) => {
+    el.classList.add('reveal');
+    const delay = (i % 4) * 0.12;
+    el.style.transitionDelay = delay + 's';
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Animate metric numbers
+        if (entry.target.classList.contains('metric-number')) {
+          entry.target.classList.add('animated');
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // JSON-LD Local Business Schema
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Sunshine Cleaning Systems LLC",
+    "description": "Professional residential and commercial cleaning services in East Stroudsburg, PA. Licensed, insured, and bilingual (English/Spanish).",
+    "url": window.location.href,
+    "telephone": ["+18556625326", "+15704841280", "+15704841468"],
+    "email": "sunshinecleaningsystemsllc@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "126 Outlook Court",
+      "addressLocality": "East Stroudsburg",
+      "addressRegion": "PA",
+      "postalCode": "18302",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.0034,
+      "longitude": -75.1496
+    },
+    "openingHours": ["Mo-Sa 08:00-18:00"],
+    "priceRange": "$$",
+    "foundingDate": "2015",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "80"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Cleaning Services",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Residential Cleaning"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Cleaning"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Move In / Move Out Cleaning"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Deep Cleaning"}}
+      ]
+    },
+    "areaServed": {"@type": "AdministrativeArea", "name": "Monroe County, Pennsylvania"}
+  };
+
+  const s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.textContent = JSON.stringify(schema);
+  document.head.appendChild(s);
+</script>
+
+</body>
+</html>
