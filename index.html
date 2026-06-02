@@ -171,22 +171,7 @@
     }
     .nav-cta:hover { background: var(--gold-dark); transform: translateY(-1px); }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .hamburger span {
-      display: block;
-      width: 24px; height: 2px;
-      background: var(--text);
-      border-radius: 2px;
-      transition: .3s;
-    }
+    /* hamburger base styles moved to mobile section below */
 
     /* ===========================
        HERO
@@ -1159,32 +1144,55 @@
     .mobile-menu {
       display: none;
       position: fixed;
-      top: 68px; left: 0; right: 0;
+      top: 64px; left: 0; right: 0;
       background: var(--white);
-      border-bottom: 1px solid rgba(42,127,212,.1);
-      padding: 20px 24px;
+      border-bottom: 2px solid rgba(42,127,212,.12);
+      padding: 16px 24px 24px;
       flex-direction: column;
-      gap: 16px;
-      z-index: 999;
-      box-shadow: 0 8px 24px rgba(13,31,45,.1);
+      gap: 4px;
+      z-index: 1001;
+      box-shadow: 0 12px 32px rgba(13,31,45,.15);
     }
     .mobile-menu.open { display: flex; }
     .mobile-menu a {
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 1.05rem;
       color: var(--text);
-      padding: 8px 0;
+      padding: 12px 8px;
       border-bottom: 1px solid rgba(42,127,212,.08);
+      display: block;
     }
+    .mobile-menu a:last-child { border-bottom: none; }
     .mobile-menu .mob-cta {
       background: var(--gold);
       color: var(--text);
       text-align: center;
-      padding: 12px;
-      border-radius: 8px;
+      padding: 14px;
+      border-radius: 10px;
       font-weight: 700;
-      border: none;
+      margin-top: 8px;
+      font-size: 1rem;
     }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1002;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px; height: 3px;
+      background: var(--text);
+      border-radius: 3px;
+      transition: .3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
     /* ===========================
        ANIMATIONS
@@ -2667,7 +2675,13 @@
   // Mobile menu
   function toggleMenu() {
     document.getElementById('mobile-menu').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
   }
+  // Cierra el menú al hacer scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }, { passive: true });
 
   // Testimonial slider
   let current = 0;
