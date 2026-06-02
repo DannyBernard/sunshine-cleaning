@@ -93,21 +93,19 @@
     }
     .nav-logo-text {
       font-family: 'DM Sans', sans-serif;
-      font-size: .78rem;
+      font-size: 1rem;
       font-weight: 700;
       color: var(--text);
       line-height: 1.2;
-      letter-spacing: .03em;
-      text-transform: uppercase;
+      letter-spacing: .02em;
       white-space: nowrap;
     }
     .nav-logo-sub {
       font-family: 'DM Sans', sans-serif;
-      font-size: .62rem;
+      font-size: .72rem;
       color: var(--muted);
       font-weight: 500;
-      letter-spacing: .03em;
-      text-transform: uppercase;
+      letter-spacing: .02em;
       white-space: nowrap;
     }
 
@@ -849,6 +847,19 @@
       grid-template-columns: 1fr 1fr;
       gap: 64px;
       align-items: start;
+    }
+
+    .map-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.3);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 320px;
+      border: none;
+      display: block;
     }
 
     .contact-info { display: flex; flex-direction: column; gap: 24px; }
@@ -2524,6 +2535,7 @@
       </div>
 
     </div>
+
   </div>
 </section>
 
@@ -2561,6 +2573,17 @@
             <span class="txt-en">Bilingual</span>
             <span class="txt-es">Bilingüe</span>
           </span>
+        </div>
+
+        <!-- Mini mapa en columna brand -->
+        <div class="map-wrap" style="margin-top:20px;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.847!2d-75.1496!3d41.0034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s126+Outlook+Court%2C+East+Stroudsburg%2C+PA+18302!5e0!3m2!1sen!2sus!4v1"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Sunshine Cleaning Systems LLC">
+          </iframe>
         </div>
       </div>
 
